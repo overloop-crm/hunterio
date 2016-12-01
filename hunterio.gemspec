@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/prospectio/hunterio'
 
   spec.summary       = %q{A Ruby wrapper around Hunter.io API V2}
-  spec.description   = %q{A ruby wrapper around Hunter.io API. Direct access to all the web's email addresses.}
+  spec.description   = %q{A ruby wrapper around Hunter.io API V2. Direct access to all the web's email addresses.}
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
