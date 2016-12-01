@@ -8,7 +8,7 @@ A ruby wrapper around Hunter.io API. Direct access to all the web's email addres
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'hunter'
+gem 'hunterio'
 ```
 
 And then execute:
@@ -17,12 +17,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install hunter
+    $ gem install hunterio
 
 ## Usage
 
 ```ruby
-require 'hunter'
+require 'hunterio'
 hunter = Hunter.new('Your secret API key')
 
 ```

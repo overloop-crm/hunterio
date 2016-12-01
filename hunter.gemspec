@@ -4,11 +4,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require File.expand_path('../lib/hunter/version', __FILE__)
 
 Gem::Specification.new do |spec|
-  spec.name          = "hunter"
+  spec.name          = "hunterio"
   spec.version       = Hunter::VERSION
   spec.authors       = ["Vincenzo Ruggiero"]
   spec.email         = ["vincenzo@prospect.io"]
-  spec.homepage      = 'https://github.com/prospectio/hunter'
+  spec.homepage      = 'https://github.com/prospectio/hunterio'
 
   spec.summary       = %q{A Ruby wrapper around Hunter.io API V2}
   spec.description   = %q{A ruby wrapper around Hunter.io API. Direct access to all the web's email addresses.}
