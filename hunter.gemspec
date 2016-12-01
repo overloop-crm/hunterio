@@ -8,10 +8,10 @@ Gem::Specification.new do |spec|
   spec.version       = Hunter::VERSION
   spec.authors       = ["Vincenzo Ruggiero"]
   spec.email         = ["vincenzo@prospect.io"]
+  spec.homepage      = 'https://github.com/prospectio/hunter'
 
-
-  spec.summary       = %q{A tiny ruby wrapper around Hunter.io API }
-  spec.description   = %q{A tiny ruby wrapper around Hunter.io API. Hunter.io helps sales people reach their targets and increase their sales. }
+  spec.summary       = %q{A Ruby wrapper around Hunter.io API V2}
+  spec.description   = %q{A ruby wrapper around Hunter.io API. Direct access to all the web's email addresses.}
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -29,4 +29,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "faraday"
   spec.add_dependency "json"
+
 end
