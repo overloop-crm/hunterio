@@ -21,10 +21,13 @@ module Hunter
     def call_api
       url = URI.parse(URI.encode("#{API_VERIFY_URL}email=#{@email}&api_key=#{@key}"))
       response = Faraday.new(url).get
+
+      return { status: 'delayed' } if response.status == 202
+
       if response.success?
-        JSON.parse(response.body, {symbolize_names: true})[:data].merge!(status: "success")
+        JSON.parse(response.body, symbolize_names: true)[:data].merge!(status: 'success')
       else
-        {status: 'error'}
+        { status: 'error' }
       end
     end
   end
