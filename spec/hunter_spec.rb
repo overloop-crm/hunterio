@@ -42,4 +42,20 @@ describe Hunter do
       expect(hunter.email_finder('Vincenzo', 'Ruggiero', {domain: 'prospect.io'}).email).to eq('vincenzo@prospect.io')
     end
   end
+
+  context 'delayed response from API' do
+    before(:each) do
+      response = double
+      allow(response).to receive(:success?) { true }
+      allow(response).to receive(:status) { 202 }
+      allow(response).to receive(:body) { '{}' }
+      allow_any_instance_of(Faraday::Connection).to receive(:get) { response }
+    end
+
+    let(:hunter) { Hunter.new(key) }
+
+    it 'returns delayed status for email_verifier' do
+      expect(hunter.email_verifier('hello@prospect.io').status).to eq('delayed')
+    end
+  end
 end
