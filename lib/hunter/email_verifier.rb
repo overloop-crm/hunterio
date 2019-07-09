@@ -22,7 +22,7 @@ module Hunter
       url = URI.parse(URI.encode("#{API_VERIFY_URL}email=#{@email}&api_key=#{@key}"))
       response = Faraday.new(url).get
 
-      return { status: 'delayed' } if response.status == 202
+      return { status: 'delayed' } if [202, 222].include?(response.status)
 
       if response.success?
         JSON.parse(response.body, symbolize_names: true)[:data].merge!(status: 'success')

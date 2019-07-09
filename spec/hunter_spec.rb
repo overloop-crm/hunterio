@@ -58,4 +58,24 @@ describe Hunter do
       expect(hunter.email_verifier('hello@prospect.io').status).to eq('delayed')
     end
   end
+
+  context 'delayed response from API' do
+    before(:each) do
+      response = double
+      allow(response).to receive(:success?) { true }
+      allow(response).to receive(:status) { 222 }
+      allow(response).to receive(:body) do
+        '{"errors": [{"id": "verification_failed","code": 222,"details": "We '\
+        'failed to verify the email address for reasons outside of our '\
+        'control. We advise you to retry later."}]}'
+      end
+      allow_any_instance_of(Faraday::Connection).to receive(:get) { response }
+    end
+
+    let(:hunter) { Hunter.new(key) }
+
+    it 'returns delayed status for email_verifier' do
+      expect(hunter.email_verifier('hello@prospect.io').status).to eq('delayed')
+    end
+  end
 end
